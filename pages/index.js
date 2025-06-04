@@ -1,5 +1,13 @@
+import Image from "next/image";
+
 function Home () {
-  return <h1>Jonathan quer dar uma sugada</h1>
+  return (
+  <div className="container">
+      <h1 >Você é minha quase motorista preferida</h1>
+      <Image src="/fiat.gif" width={200} height={200}  />
+    </div>
+  )
+
 }
 
 export default Home;
