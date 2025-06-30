@@ -1,7 +1,7 @@
-const  { Client } = require("pg");
-const dotenv = require('dotenv')
+const { Client } = require("pg");
+const dotenv = require("dotenv");
 
-dotenv.config()
+dotenv.config();
 
 const query = async (queryString) => {
   const client = new Client({
