@@ -1,4 +1,7 @@
-import { Client } from "pg";
+const  { Client } = require("pg");
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const query = async (queryString) => {
   const client = new Client({
@@ -16,4 +19,4 @@ const query = async (queryString) => {
   return result;
 };
 
-export default { query };
+module.exports = { query };

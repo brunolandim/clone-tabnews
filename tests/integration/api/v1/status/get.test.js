@@ -1,4 +1,4 @@
-import database from "../../../../../infra/database.js";
+const database = require("../../../../../infra/database.js");
 
 test("GET to /api/v1/status shoud be 200", async () => {
   const result = await database.query("SELECT 1 +  1;");
