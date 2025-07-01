@@ -1,7 +1,4 @@
-const { Client } = require("pg");
-const dotenv = require("dotenv");
-
-dotenv.config();
+import { Client } from "pg";
 
 const query = async (queryString) => {
   const client = new Client({
@@ -12,11 +9,16 @@ const query = async (queryString) => {
     database: process.env.POSTGRES_DB,
   });
 
-  client.connect();
-  const result = await client.query(queryString);
-  await client.end();
+  try {
+    client.connect();
+    const result = await client.query(queryString);
+    return result;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    await client.end();
+  }
 
-  return result;
 };
 
-module.exports = { query };
+export default { query };
