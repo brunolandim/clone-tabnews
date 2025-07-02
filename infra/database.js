@@ -7,6 +7,7 @@ const query = async (queryString) => {
     password: process.env.POSTGRES_PASSWORD,
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DB,
+    ssl: process.env.NODE_ENV === "development" ? false : true,
   });
 
   try {
@@ -19,7 +20,6 @@ const query = async (queryString) => {
   } finally {
     await client.end();
   }
-
 };
 
 export default { query };
